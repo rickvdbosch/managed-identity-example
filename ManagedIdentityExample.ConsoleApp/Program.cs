@@ -6,20 +6,28 @@ using Microsoft.Azure.Services.AppAuthentication;
 
 namespace ManagedIdentityExample.ConsoleApp
 {
-    class Program
+    public class Program
     {
+        #region Constants
+
+        // Name of the secret to get from Key Vault
         private const string SECRET_NAME = "SomeSecret";
+
+        // The URL to the Key Vault to get the secret from
         private const string VAULT_URL = "https://mi-example.vault.azure.net/";
+
+        #endregion
 
         static async Task Main(string[] args)
         {
             var tokenProvider = new AzureServiceTokenProvider();
-            var kvc = new KeyVaultClient(
+            using (var kvc = new KeyVaultClient(
                 new KeyVaultClient.AuthenticationCallback(
-                    tokenProvider.KeyVaultTokenCallback));
-
-            var x = await kvc.GetSecretAsync(VAULT_URL, SECRET_NAME);
-            Console.WriteLine($"The secret we got from Key Vault: {x.Value}");
+                    tokenProvider.KeyVaultTokenCallback)))
+            {
+                var x = await kvc.GetSecretAsync(VAULT_URL, SECRET_NAME);
+                Console.WriteLine($"The value of the secret we got from Key Vault: {x.Value}");
+            }
             Console.ReadLine();
         }
     }

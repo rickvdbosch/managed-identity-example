@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29021.104
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagedIdentityExample.Functions", "ManagedIdentityExample.Functions\ManagedIdentityExample.Functions.csproj", "{6BD45BF4-1039-4829-BF64-5F29698D03AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagedIdentityExample.ConsoleApp", "ManagedIdentityExample.ConsoleApp\ManagedIdentityExample.ConsoleApp.csproj", "{454B7452-585F-47F7-8CA0-31AE20934176}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManagedIdentityExample.ConsoleApp", "ManagedIdentityExample.ConsoleApp\ManagedIdentityExample.ConsoleApp.csproj", "{454B7452-585F-47F7-8CA0-31AE20934176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

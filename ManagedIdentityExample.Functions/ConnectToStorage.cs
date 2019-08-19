@@ -17,7 +17,7 @@ namespace ManagedIdentityExample.Functions
     {
         #region Constants
 
-        private const string BLOBNAME = "https://<YOUR_STORAGEACCOUNT'S_NAME>.blob.core.windows.net/<YOUR_BLOB'S_NAME>";
+        private const string BLOBNAME = "https://<YOUR_STORAGEACCOUNT_NAME>.blob.core.windows.net/<YOUR_BLOB_NAME>";
 
         #endregion
 

@@ -14,8 +14,8 @@ namespace ManagedIdentityExample.Functions
     {
         #region Constants
 
-        private const string CONNECTIONSTRING = "Server=tcp:rickvdbosch01.database.windows.net,1433;Initial Catalog=rvdb-bt001;";
-        private const string QUERY = "Select top 1 Descr from Test";
+        private const string CONNECTIONSTRING = "Server=tcp:<YOUR_SERVER'S_NAME>.database.windows.net,1433;Initial Catalog=<YOUR_DATABASE'S_NAME>;";
+        private const string QUERY = "<YOUR_SQL_QUERY>";
 
         #endregion
 

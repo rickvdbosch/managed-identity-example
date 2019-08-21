@@ -18,7 +18,7 @@ namespace ManagedIdentityExample.Functions
         #region Constants
 
         private const string NAMESPACE = "https://<YOUR_NAMESPACE>.servicebus.windows.net";
-        private const string QUEUE_NAME = "demoq";
+        private const string QUEUE_NAME = "<YOUR_QUEUE_NAME>";
         // TENANT_ID can both be the Directory ID (GUID) or the 'xxx.onmicrosoft.com' name of the tenant.
         private const string TENANT_ID = "<YOUR_TENANT_ID>";
 

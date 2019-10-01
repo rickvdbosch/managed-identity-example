@@ -15,4 +15,5 @@ There are a few gotcha's in the implementations. Looking at the Function impleme
 
 For more information, have a look at my blog, where I'm currently posting a series on using Managed Identity:
 
-[Rick van den Bosch - Blog](https://www.rickvandenbosch.net/blog)
+[Managed Identity - Part I](https://www.rickvandenbosch.net/blog/managed-identity-part-i/)  
+[Managed Identity - Part II](https://www.rickvandenbosch.net/blog/managed-identity-part-ii/)

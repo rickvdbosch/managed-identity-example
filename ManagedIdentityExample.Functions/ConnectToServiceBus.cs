@@ -29,12 +29,8 @@ namespace ManagedIdentityExample.Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] HttpRequest req,
             ILogger log)
         {
-            string messageContent;
-
-            using (var streamReader = new StreamReader(req.Body))
-            {
-                messageContent = await streamReader.ReadToEndAsync();
-            }
+            using var streamReader = new StreamReader(req.Body);
+            var messageContent = await streamReader.ReadToEndAsync();
 
             var queueClient = new QueueClient(NAMESPACE, QUEUE_NAME, new ServiceBusTokenProvider(TENANT_ID));
             var message = new Message(Encoding.UTF8.GetBytes(messageContent));

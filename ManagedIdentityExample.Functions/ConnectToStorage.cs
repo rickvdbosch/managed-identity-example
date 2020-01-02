@@ -55,10 +55,10 @@ namespace ManagedIdentityExample.Functions
             var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
 
             // Renew the token 5 minutes before it expires.
-            var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
+            var next = authResult.ExpiresOn - DateTimeOffset.UtcNow - TimeSpan.FromMinutes(5);
             if (next.Ticks < 0)
             {
-                next = default(TimeSpan);
+                next = default;
                 Console.WriteLine("Renewing token...");
             }
 

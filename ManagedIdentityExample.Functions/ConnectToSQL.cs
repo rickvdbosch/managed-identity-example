@@ -26,18 +26,17 @@ namespace ManagedIdentityExample.Functions
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {
-            using (var connection = new SqlConnection(CONNECTIONSTRING))
-            using (var command = new SqlCommand(QUERY, connection))
-            {
-                // The Managed Identity does NOT need the Tenant ID to be specified explicitly.
-                // For local debugging, especially when using a personal Microsoft account, you
-                // have to explicitly specify the Tenant ID when calling GetAccessTokenAsync().
-                connection.AccessToken = await (new AzureServiceTokenProvider().GetAccessTokenAsync("https://database.windows.net/", TENANT_ID));
-                await connection.OpenAsync();
-                var result = (await command.ExecuteScalarAsync()).ToString();
+            using var connection = new SqlConnection(CONNECTIONSTRING);
+            using var command = new SqlCommand(QUERY, connection);
 
-                return new OkObjectResult(result);
-            }
+            // The Managed Identity does NOT need the Tenant ID to be specified explicitly.
+            // For local debugging, especially when using a personal Microsoft account, you
+            // have to explicitly specify the Tenant ID when calling GetAccessTokenAsync().
+            connection.AccessToken = await (new AzureServiceTokenProvider().GetAccessTokenAsync("https://database.windows.net/", TENANT_ID));
+            await connection.OpenAsync();
+            var result = (await command.ExecuteScalarAsync()).ToString();
+
+            return new OkObjectResult(result);
         }
     }
 }
